@@ -11,3 +11,512 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body{
+  background-color: #001015;
+  color: white;
+}
+.navbar {
+  width: 100vw;
+  border-bottom: 0.1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.head {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+.logo {
+  height: 3rem;
+}
+
+.Link {
+  text-decoration: none;
+  margin-right: 1rem;
+  color: gray;
+}
+
+.active {
+  color: white;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  text-decoration-color: #00A6FB;
+  text-decoration-thickness: 0.25rem;
+}
+
+.inactive {
+  position: relative;
+  color: gray;
+}
+
+.inactive::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 0;
+  height: 0.25rem;
+  background-color: #00A6FB;
+  transition: width 0.3s ease-in-out;
+}
+
+.inactive:hover::after {
+  width: 100%;
+}
+.links{
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+.bar.open {
+  background-color: #00A6FB;
+}
+.main{
+  display: flex;
+  justify-content: center; 
+}
+.signup1{
+  background-color: #0582CA;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  gap: 5px;
+  width: 25vw;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.signup2{
+  border: 2px solid #0582CA;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 35vw;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  padding: 3rem;
+}
+.password{
+  position: relative;
+}
+.password2{
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  cursor: pointer;
+}
+.link{
+  margin-top: 3rem;
+  color: #00A6FB;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.welcome{
+  color: white;
+  background-color: #0582CA;
+}
+.email{
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#emailHelp{
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  color: gray;
+}
+.input{
+  background-color: #001015;
+  color: white;
+  font-size: 1.15rem;
+  padding: 0.5rem;
+  border: 0.5px solid gray;
+  border-radius: 5px;
+  width: 100%;
+}
+.btn{
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  font-size: medium;
+  background-color: #00A6FB;
+  border: none;
+  border-radius: 3px;
+  color: black;
+  cursor: pointer;
+}
+.t-main{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.t-first{
+  background-color: #373636;
+  width: 100%;
+  min-height: 80vw;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-radius: 20px;
+  padding: 1.5rem;
+}
+.t-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+.plus{
+  background-color: #00A6FB;
+  width: 54px;
+  height: 54px;
+  text-align: center;
+  color: #001015;
+  font-size: 2.5rem;
+  border-radius: 100000000px;
+  cursor: pointer;
+}
+.modal-title{
+  color: #001015;
+  font-weight: 700;
+}
+.content{
+  color: #001015;
+}
+.btn2{
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem;
+  font-size: medium;
+  background-color: gray;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+.select{
+  padding: 5px;
+  background-color: #001015;
+  color: #fff;
+  border: 0.25px solid #373636;
+  border-radius: 5px;
+}
+.line{
+  margin-top: 5rem;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 1000px){
+  .main{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .signup1{
+    width: 60vw;
+    padding: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0;
+    margin-bottom: 0;
+  }
+  .signup2{
+    width: 60vw;
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 10px;
+    padding: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .email{
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .btns{
+    padding-left: 3rem;
+  }
+}
+
+@media (max-width: 650px) {
+  
+  .pie{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hamburger {
+    display: flex;
+    margin-right: 1rem;
+  }
+
+  .links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #001015;
+    z-index: 1;
+  }
+
+  .links.show {
+    display: flex;
+  }
+
+  .Link {
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .btn {
+    width: 80%;
+    text-align: center;
+    padding: 10px;
+  }
+  .inactive::after{
+    bottom: 6px;
+  }
+  .t-main{
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+  }
+  .t-first{
+    margin-bottom: 2rem;
+    min-height: 0;
+    max-width: 80vw;
+  }
+}
+
+/* Card css: */
+.delete-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.expense-card {
+  min-width: 40vw;
+  height: 15vh;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  font-family: Arial, sans-serif;
+  margin-bottom: 5vh;
+  cursor: pointer;
+}
+.expense-card:hover{
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.card-image {
+  position: relative;
+  width: 30%;
+  /* height: 150px; */
+  /* background-image: url('../public/images/food.png'); */
+  background-size: cover;
+  background-position: center;
+  /* filter: brightness(0.6); */
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  filter: brightness(-0.6);
+  color: #fff;
+}
+
+.card-body {
+  background-color: black;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 70%;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  /* color: #333; */
+}
+
+.card-amount {
+  display: flex;
+  flex-direction: row;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.card-description {
+  font-size: 16px;
+  color: #666;
+  width: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #000000;
+}
+
+.green {
+  padding-top: 0.8vh;
+  color: #4caf50;
+}
+.red {
+  padding-top: 0.8vh;
+  color: #f44336;
+}
+
+/* Triple dot css */
+.icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.triple-dot {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  top: -10px;
+  right: 0;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.menu-item {
+  height: 5vh;
+  padding: 2px 15px;
+  cursor: pointer;
+  color: #333;
+  font-size: medium;
+}
+
+.menu-item:hover {
+  background-color: #ddd;
+}
+
+
+
+
+
+/* ToDo Card */
+.todo-card{
+  width: 35vw;
+  height: 15vh;
+  padding: 0.9rem;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 5vh;
+}
+
+.todo-card.completed{
+  background-color: grey;
+  color: #000000c9;
+}
+
+.todo-card.notCompleted{
+  background-color: #00a7fb3c;
+}
+
+.todo-head{
+  margin-bottom: 0.8em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-date{
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.todo-date.completed{
+  color: rgba(0, 0, 0, 0.719);
+}
+
+.todo-date.notCompleted{
+  color: #afc9f9;
+}
+
+.todo-content{
+  height: 7vh;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: grey #2A5064;
+}
+
+.todo-content.completed{
+  text-decoration: line-through;
+  scrollbar-color: black grey;
+}
+
+input[type="checkbox"] {
+  width: 1.2em;
+  height: 1.2em;
+  accent-color: rgba(48, 48, 48, 0.719);
+  cursor: pointer;  
+}
+
+/* input[type="checkbox"]:  */
