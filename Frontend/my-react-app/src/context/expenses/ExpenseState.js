@@ -6,4 +6,16 @@ const ExpenseState = (props) => {
   const expensesInitial = [];
   const [expenses, setExpenses] = useState(expensesInitial);
 
+  const getExpenses = async () => {
+    const response = await fetch(`${host}/api/expenses/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token'),
+      },
+    });
+    const json = await response.json();
+    setExpenses(json); // fixed here
+  };
+
 };
