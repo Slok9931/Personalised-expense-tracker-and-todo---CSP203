@@ -12,24 +12,48 @@ const ExpenseState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token'),
+        "auth-token": localStorage.getItem("token"),
       },
     });
 
     // Add a new expense
-    const addExpense = async (account, amount, category, date, title, description, type) => {
+    const addExpense = async (
+      account,
+      amount,
+      category,
+      date,
+      title,
+      description,
+      type
+    ) => {
       const response = await fetch(`${host}/api/expenses/new`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "auth-token": localStorage.getItem('token'),
+          "auth-token": localStorage.getItem("token"),
         },
-        body: JSON.stringify({ account, amount, category, date, title, description, type }),
+        body: JSON.stringify({
+          account,
+          amount,
+          category,
+          date,
+          title,
+          description,
+          type,
+        }),
       });
       const json = await response.json();
       console.log(json);
 
-      const expense = { acocunt: account, amount: amount, date: date, title: title, category: category, description: description, type: type };
+      const expense = {
+        acocunt: account,
+        amount: amount,
+        date: date,
+        title: title,
+        category: category,
+        description: description,
+        type: type,
+      };
       setExpenses(expenses.concat(expense)); // fixed here
     };
 
@@ -43,24 +67,43 @@ const ExpenseState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token'),
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = await response.json();
     console.log(json);
 
     // Use functional state update to avoid stale state issues
-    setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense._id !== id));
+    setExpenses((prevExpenses) =>
+      prevExpenses.filter((expense) => expense._id !== id)
+    );
   };
   // Edit a expense
-  const editExpenses = async (id, account, amount, title, category, date, description, type) => {
+  const editExpenses = async (
+    id,
+    account,
+    amount,
+    title,
+    category,
+    date,
+    description,
+    type
+  ) => {
     const response = await fetch(`${host}/api/expenses/${id}/edit`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token'),
+        "auth-token": localStorage.getItem("token"),
       },
-      body: JSON.stringify({ account, amount, category, date, title, description, type }),
+      body: JSON.stringify({
+        account,
+        amount,
+        category,
+        date,
+        title,
+        description,
+        type,
+      }),
     });
     const json = await response.json();
     console.log(json);
@@ -81,7 +124,9 @@ const ExpenseState = (props) => {
   };
 
   return (
-    <ExpenseContext.Provider value={{ expenses, addExpense, deleteExpense, editExpenses, getExpenses }}>
+    <ExpenseContext.Provider
+      value={{ expenses, addExpense, deleteExpense, editExpenses, getExpenses }}
+    >
       {props.children}
     </ExpenseContext.Provider>
   );
