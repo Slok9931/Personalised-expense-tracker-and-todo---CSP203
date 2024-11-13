@@ -36,4 +36,46 @@ const TransactionCard = ({ expense }) => {
         ecategory: expense.category,
       });
     };
-}  
+
+
+
+
+
+    return (
+  <>
+    <div
+      className="modal fade"
+      id={`modal-${expense._id}`}
+      tabIndex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div className="modal-dialog">
+        <div
+          className="modal-content"
+          style={{
+            backgroundColor: "#000000",
+            color: "#fff",
+            border: "1px solid white",
+          }}
+        >
+          <div className="modal-header">
+            <h1
+              className="modal-title fs-5 text-white"
+              id="exampleModalLabel"
+            >
+              Edit Expense
+            </h1>
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              style={{ filter: "invert(1)" }}
+            ></button>
+          </div>
+
+          
+  </>
+);
+} ;
