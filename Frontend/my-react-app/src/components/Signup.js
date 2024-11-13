@@ -20,6 +20,40 @@ const Signup = () => {
       setView("password");
     }
   };
+  let navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { password, cpassword } = credentials;
+    if (cpassword !== password) {
+      alert("Please enter correct password");
+    } else {
+      const response = await fetch(
+        "http://localhost:2000/api/auth/createuser",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: credentials.username,
+            name: credentials.name,
+            email: credentials.email,
+            password: credentials.password,
+          }),
+        }
+      );
+      const json = await response.json();
+      if (json.success) {
+        localStorage.setItem("token", json.authtoken);
+        navigate("/");
+      } else {
+        alert("These credentials already exist.");
+      }
+    }
+  };
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
   
   
 };
