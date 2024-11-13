@@ -74,7 +74,39 @@ const TransactionCard = ({ expense }) => {
               style={{ filter: "invert(1)" }}
             ></button>
           </div>
+          <div className="modal-body">
+            <form onSubmit={handleEditSubmit}>
+              <div className="d-flex justify-content-between">
+                <div className="mb-3">
+                  <input
+                    type="date"
+                    className="form-control"
+                    id="edate"
+                    name="edate" // Match name with state key
+                    max={formatDate(new Date())}
+                    value={editExpense.edate}
+                    onChange={onEditChange}
+                  />
+                </div>
+                {editExpense.etype === "dr" ? (
+                  <div className="mb-3">
+                    <select
+                      id="eaccount"
+                      name="eaccount" //Match name with state key
+                      value={editExpense.eaccount}
+                      required
+                      onChange={onEditChange}
+                      className="form-control"
+                    >
+                      <option value="">Select an account</option>
+                      <option value="card">Card</option>
+                      <option value="cash">Cash</option>
+                    </select>
+                  </div>
+                ) : null}
+              </div>
 
+          
           
   </>
 );
