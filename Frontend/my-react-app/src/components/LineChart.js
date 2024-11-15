@@ -24,7 +24,7 @@ const LineChart = ({ data }) => {
         data: expenseData,
         borderColor: 'red',
         backgroundColor: 'red',
-        fill: false,
+        fill: true,
         tension: 0.4,
       },
     ],
@@ -47,7 +47,7 @@ const LineChart = ({ data }) => {
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 1000,
+          stepSize: 2000,
         }
       },
     },
