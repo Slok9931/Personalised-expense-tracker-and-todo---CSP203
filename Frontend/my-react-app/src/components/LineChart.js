@@ -14,18 +14,18 @@ const LineChart = ({ data }) => {
       {
         label: 'Total Income',
         data: incomeData,
-        borderColor: 'yellow',
-        backgroundColor: 'red',
-        fill: true,
+        borderColor: 'green',
+        backgroundColor: 'green',
+        fill: false,
         tension: 0.4,
       },
       {
         label: 'Total Expenses',
         data: expenseData,
         borderColor: 'red',
-        backgroundColor: 'green',
+        backgroundColor: 'red',
         fill: false,
-        tension: 0.7,
+        tension: 0.4,
       },
     ],
   };
@@ -33,7 +33,7 @@ const LineChart = ({ data }) => {
   const options = {
     plugins: {
       legend: {
-        position: 'bottom',
+        position: 'top',
       },
       tooltip: {
         callbacks: {
@@ -47,7 +47,7 @@ const LineChart = ({ data }) => {
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 2000,
+          stepSize: 1000,
         }
       },
     },
@@ -55,7 +55,7 @@ const LineChart = ({ data }) => {
 
   return (
     <div className='line-chart'>
-      <h4>Income and Expenses Over the Last Week</h4>
+      <h3>Income and Expenses Over the Last 7 Days</h3>
       <Line data={chartData} options={options} />
     </div>
   );
