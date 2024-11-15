@@ -472,7 +472,7 @@ body{
 
 .todo-card.completed{
   background-color: grey;
-  color: #000000c9;
+  color: black;
 }
 
 .todo-card.notCompleted{
