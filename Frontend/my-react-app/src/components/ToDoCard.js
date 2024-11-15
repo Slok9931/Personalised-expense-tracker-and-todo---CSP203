@@ -1,5 +1,4 @@
 import React from 'react'
-
 const ToDoCard = () => {
   let isCompleted = true;
   const cardColor = isCompleted ? "notCompleted" : "completed";
@@ -14,10 +13,9 @@ const ToDoCard = () => {
         </div>
       </div>
       <div className={`todo-content ${cardColor}`}>
-        Neque porro quisquam est qui dolorem ipsum quiadol or sit amet, consec tetur, adipisci velit...Neque porro quisquam est qui dolorem ipsum quiadol or sit amet, consec tetur, adipisci velit...
+        welcome to the to do page
       </div>
     </div>
   )
 }
-
 export default ToDoCard
