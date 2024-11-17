@@ -460,5 +460,86 @@ const Transaction = () => {
               </div>
             </div>
           </div>
-          
-}
+          <div className="t-main">
+        <div className="t-first">
+          <div className="t-head">
+            <DateDropdown onDateChange={handleDateChange} />
+            {selectedTransactions.length === 0 ? (
+              <h2 className="plus" onClick={handleClick}>
+                +
+              </h2>
+            ) : (
+              <h2 className="plus" style={{ fontSize: '1.5rem', paddingTop: '0.5rem' }} onClick={handleDeleteSelected}>
+                <MdDelete />
+              </h2>
+            )}
+          </div>
+          <div className="mt-3">
+            <div className="summary d-flex justify-content-between items-center mb-3">
+              <h5 className="red">&#8377;{totalExpense.toFixed(2)}</h5>
+              <h5 style={{ color: "#00A6FB" }}>
+                &#8377;{totalIncome.toFixed(2) - totalExpense.toFixed(2)}
+              </h5>
+              <h5 className="green">&#8377;{totalIncome.toFixed(2)}</h5>
+            </div>
+            {expenses &&
+              expenses.length > 0 &&
+              visibleExpenses
+                .slice()
+                .reverse()
+                .map((expense) => (
+                  <div key={expense._id} className="d-flex gap-3 align-items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={selectedTransactions.includes(expense._id)}
+                      onChange={() => handleCheckboxChange(expense._id)}
+                    />
+                    <TransactionCard key={expense._id} expense={expense} />
+                  </div>
+                ))}
+          </div>
+        </div>
+        <div className="t-first">
+          <div className="combined-legend">
+            <ul className="d-flex gap-4 flex-wrap">
+              {combinedLegend.map((item, index) => (
+                <li
+                  key={index}
+                  style={{ color: item.color, listStyleType: "square" }}
+                >
+                  <strong>{item.category}</strong>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="d-flex gap-5 pie">
+            <PieChart
+              data={expensesByCategory}
+              labels={categories}
+              title="Expenses"
+              color={expenseColors}
+              showLegend={false}
+            />
+
+            <PieChart
+              data={incomesByCategory}
+              labels={categories}
+              title="Income"
+              color={incomeColors}
+              showLegend={false}
+            />
+          </div>
+          <div className="line">
+            <LineChart data={chartData} />
+          </div>
+          <div className="line">
+            <LineChart2 data={chartData2} />
+          </div>
+          <ExportToExcel expenses={expenses} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Transaction;
