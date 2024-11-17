@@ -52,6 +52,69 @@ Router.post(
     }
   }
 );
+Router.post(
+  "/login",
+  [
+    body("email", "Enter a valid email").isEmail(),
+    body("password", "Password can't be blank").exists(),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { email, password } = req.body;
+    try {
+      let user = await User.findOne({ email });
+      if (!user) {
+        return re
+          .status(400)
+          .json({ error: "Please try to login with correct credentials." });
+      }
+      const passwordCompare = await bcrypt.compare(password, user.password);
+      if (!passwordCompare) {
+        success = false;
+        return re
+          .status(400)
+          .json({ error: "Please try to login with correct credentials." });
+      }
+      const data = {
+        user: {
+          id: user.id,
+        },
+      };
+      const JWT_SECRET =
+        "c0d608098b78d61cf5654965dab8b53632bf831dc6b43f29289411376ac107b";
+      const authtoken = jwt.sign(data, JWT_SECRET);
+      success = true;
+      res.send({ success, authtoken });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json("Internal server error.");
+    }
+  }
+);
+Router.post("/getuser", fetchuser, async (req, res) => {
+  try {
+    const userId = req.user.id;
+    const user = await User.findById(userId).select("-password");
+    res.send(user);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json("Internal server error.");
+  }
+});
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
 const upload = multer({ storage: storage });
 
 Router.put("/updateuser", fetchuser, upload.single("photo"), async (req, res) => {
@@ -100,16 +163,16 @@ Router.put("/updateuser", fetchuser, upload.single("photo"), async (req, res) =>
     }
 
     const updatedUser = await User.findByIdAndUpdate(
-        userId,
-        { $set: newUser },
-        { new: true, runValidators: true }
-      ).select("-password");
-      res.json(updatedUser);
-    } catch (error) {
-      console.error(error.message);
-      res.status(500).json("Internal server error.");
-    }
-  });
-  
+      userId,
+      { $set: newUser },
+      { new: true, runValidators: true }
+    ).select("-password");
+    res.json(updatedUser);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Internal server error.");
+  }
+});
+
 
 module.exports = Router;
