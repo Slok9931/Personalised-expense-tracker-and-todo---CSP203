@@ -272,4 +272,193 @@ const Transaction = () => {
       setSelectedTransactions([]); // Clear selected after deletion
       getExpenses(); // Refresh the expenses list
     };
+
+    return (
+        <>
+          <button
+            type="button"
+            ref={ref}
+            className="btn btn-primary d-none"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Launch demo modal
+          </button>
+    
+          <div
+            className="modal fade"
+            id="exampleModal"
+            tabIndex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog">
+              <div
+                className="modal-content"
+                style={{
+                  backgroundColor: "#000000",
+                  color: "#fff",
+                  border: "1px solid white",
+                }}
+              >
+                <div className="modal-header">
+                  <h1
+                    className="modal-title fs-5"
+                    id="exampleModalLabel"
+                    style={{ color: "#fff" }}
+                  >
+                    Add Expense
+                  </h1>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    style={{ filter: "invert(1)" }}
+                  ></button>
+                </div>
+    
+                <div className="modal-body">
+                  <div className="container my-3 content">
+                    <form onSubmit={handleSubmit}>
+                      <div className="d-flex justify-content-between">
+                        <div className="mb-3">
+                          <DateDropdown
+                            onDateChange={(date) =>
+                              setExpense({ ...expense, date })
+                            }
+                          />
+                        </div>
+                        {expense.type === "dr" ? (
+                          <div className="mb-3">
+                            <select
+                              id="account"
+                              name="account"
+                              value={expense.account}
+                              required
+                              onChange={onChange}
+                              className="form-control"
+                            >
+                              <option value="">Select an account</option>
+                              <option value="card">Card</option>
+                              <option value="cash">Cash</option>
+                            </select>
+                          </div>
+                        ) : null}
+                      </div>
+    
+                      <div className="mb-3">
+                        <input
+                          type="number"
+                          className="form-control"
+                          placeholder="Amount"
+                          id="amount"
+                          name="amount"
+                          value={expense.amount}
+                          required
+                          onChange={onChange}
+                        />
+                      </div>
+    
+                      <div className="d-flex gap-3 justify-content-between items-center">
+                        <div className="mb-3">
+                          <input
+                            type="radio"
+                            id="type1"
+                            name="type"
+                            value="dr"
+                            required
+                            onChange={onChange}
+                          />
+                          <label htmlFor="type1" className="px-2 text-white">
+                            Expense
+                          </label>
+                        </div>
+    
+                        <div className="mb-3">
+                          <input
+                            type="radio"
+                            id="type2"
+                            name="type"
+                            value="cr"
+                            required
+                            onChange={onChange}
+                          />
+                          <label htmlFor="type2" className="px-2 text-white">
+                            Income
+                          </label>
+                        </div>
+    
+                        <div className="mb-3">
+                          <select
+                            id="category"
+                            name="category"
+                            value={expense.category}
+                            required
+                            onChange={onChange}
+                            className="form-control"
+                          >
+                            <option value="">Select a category</option>
+                            {expense.type === "dr" &&
+                              expenseCategories.map((category) => (
+                                <option key={category} value={category}>
+                                  {category}
+                                </option>
+                              ))}
+                            {expense.type === "cr" &&
+                              incomeCategories.map((category) => (
+                                <option key={category} value={category}>
+                                  {category}
+                                </option>
+                              ))}
+                          </select>
+                        </div>
+                      </div>
+    
+                      <div className="mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Title"
+                          id="title"
+                          name="title"
+                          value={expense.title}
+                          required
+                          onChange={onChange}
+                        />
+                      </div>
+    
+                      <div className="mb-3">
+                        <textarea
+                          type="text"
+                          className="form-control"
+                          placeholder="Description"
+                          id="description"
+                          name="description"
+                          value={expense.description}
+                          onChange={onChange}
+                        />
+                      </div>
+    
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          ref={refClose}
+                          className="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                          onClick={handleClear}
+                        >
+                          Close
+                        </button>
+                        <button type="submit" className="btn btn-primary">
+                          Add New
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
 }
