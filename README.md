@@ -45,13 +45,13 @@ A comprehensive web application developed as part of the **CSP203** course proje
 ## 📸 Screenshots
 
 ### Signup Page
-![Signup Page](public/signup.png)
+![Signup Page](Frontend/public/signup.png)
 
 ### To-Do Page
-![To-Do Page](public/todo.png)
+![To-Do Page](Frontend/public/todo.png)
 
 ### Expense Page
-![Expense Page](public/expense.png)
+![Expense Page](Frontend/public/expense.png)
 
 ## 🛠️ Tech Stack
 
@@ -65,7 +65,7 @@ A comprehensive web application developed as part of the **CSP203** course proje
 ## 📂 Folder Structure
 
 root/
-├── frontend/               # Frontend React app
+├── Frontend/               # Frontend React app
 │   ├── src/
 │   │   ├── components/     # Reusable UI components
 │   │   ├── context/        # Context for managing global state (To-Do, Expenses, etc.)
@@ -102,15 +102,15 @@ To get started with the project, follow these steps:
    ```bash
    npm install
 
-4. **Navigate back to the frontend directory:**:
+4. **Navigate back to the Frontend directory:**:
    ```bash
-   cd ../frontend
+   cd ../Frontend
 
 5. **Install backend dependencies:**:
    ```bash
    npm install
 
-5. **Run both the frontend and backend:**:
+5. **Run both the Frontend and backend:**:
    ```bash
    npm run both
 
