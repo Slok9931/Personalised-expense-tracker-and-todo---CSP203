@@ -23,8 +23,10 @@ A comprehensive web application developed as part of the **CSP203** course proje
   - The card's appearance, including the icon and amount color, changes based on category and subcategory (e.g., red for expenses, green for income).
   - A cash/card symbol dynamically changes based on the card’s info.
 - **Search & Filters**: 
-  - View expenses for a specific day, the last week, or the last month.
-  - Corresponding graphs update dynamically.
+  - View expenses for a specific category, account, title, discryption ,ammount.
+- **Dropdown**: 
+  - Filter based on date.
+  - Corresponding graphs update dynamically on the right panel.
 - **Charts**: 
   - **Pie Chart**: Category-wise expenses for one day.
   - **Line Chart**: Track expenses over the last week.
@@ -57,7 +59,7 @@ A comprehensive web application developed as part of the **CSP203** course proje
 
 - **Frontend**: React.js
 - **Backend**: Node.js, Express.js
-- **Database**: MongoDB
+- **Database**: MongoDB (Atlas)
 - **Authentication**: JWT (JSON Web Tokens)
 
 ---
@@ -91,7 +93,7 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/Personalised-expense-tracker-and-todo---CSP203.git
+   git clone https://github.com/Slok9931/Personalised-expense-tracker-and-todo---CSP203.git
    cd Personalised-expense-tracker-and-todo---CSP203
 
 2. **Navigate back to the backend directory:**:
