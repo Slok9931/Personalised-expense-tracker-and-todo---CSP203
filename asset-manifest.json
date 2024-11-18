@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Personalised-expense-tracker-and-todo---CSP203/static/css/main.f0e4cdbe.css",
+    "main.js": "/Personalised-expense-tracker-and-todo---CSP203/static/js/main.603e292e.js",
+    "static/js/453.f3fddb0e.chunk.js": "/Personalised-expense-tracker-and-todo---CSP203/static/js/453.f3fddb0e.chunk.js",
+    "index.html": "/Personalised-expense-tracker-and-todo---CSP203/index.html",
+    "main.f0e4cdbe.css.map": "/Personalised-expense-tracker-and-todo---CSP203/static/css/main.f0e4cdbe.css.map",
+    "main.603e292e.js.map": "/Personalised-expense-tracker-and-todo---CSP203/static/js/main.603e292e.js.map",
+    "453.f3fddb0e.chunk.js.map": "/Personalised-expense-tracker-and-todo---CSP203/static/js/453.f3fddb0e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f0e4cdbe.css",
+    "static/js/main.603e292e.js"
+  ]
+}
