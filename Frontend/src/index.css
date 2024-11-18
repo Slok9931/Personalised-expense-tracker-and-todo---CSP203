@@ -191,6 +191,11 @@ body{
   margin-left: 0.5rem;
   margin-right: 0.5rem;
 }
+.search{
+  padding: 3px;
+  padding-left: 10px;
+  border-radius: 5px;
+}
 .plus{
   background-color: #00A6FB;
   width: 54px;
