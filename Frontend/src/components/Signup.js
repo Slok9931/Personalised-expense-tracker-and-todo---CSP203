@@ -45,7 +45,7 @@ const Signup = () => {
       const json = await response.json();
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
-        navigate("/");
+        navigate("/transaction");
       } else {
         alert("These credentials already exist.");
       }
@@ -147,7 +147,7 @@ const Signup = () => {
           </div>
 
           <div className="btns">
-            <button type="submit" className="btn btn-primary mt-5">
+            <button type="submit" className="btn">
               Sign Up
             </button>
             <span

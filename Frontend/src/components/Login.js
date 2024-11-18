@@ -22,7 +22,7 @@ const Login = () => {
     const json = await response.json();
     if (json.success) {
       localStorage.setItem("token", json.authtoken);
-      navigate("/");
+      navigate("/transaction");
     } else {
       alert("Invalid Credentials");
     }

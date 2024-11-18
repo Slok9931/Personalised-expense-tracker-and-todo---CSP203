@@ -132,7 +132,6 @@ body{
   cursor: pointer;
 }
 .link{
-  margin-top: 3rem;
   color: #00A6FB;
   text-decoration: underline;
   cursor: pointer;
@@ -162,7 +161,6 @@ body{
   width: 100%;
 }
 .btn{
-  margin-top: 1rem;
   margin-right: 1rem;
   padding: 0.5rem;
   font-size: medium;
@@ -192,6 +190,11 @@ body{
   align-items: center;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+}
+.search{
+  padding: 3px;
+  padding-left: 10px;
+  border-radius: 5px;
 }
 .plus{
   background-color: #00A6FB;

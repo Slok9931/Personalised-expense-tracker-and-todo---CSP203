@@ -26,6 +26,7 @@ const Transaction = () => {
   };
 
   const [selectedDate, setSelectedDate] = useState(formatDate(new Date()));
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
@@ -87,9 +88,17 @@ const Transaction = () => {
     });
   };
 
-  const visibleExpenses = expenses.filter(
-    (expense) => formatDate(new Date(expense.date)) === selectedDate
-  );
+  const visibleExpenses = expenses.filter((expense) => {
+    const expenseDate = formatDate(new Date(expense.date));
+    const matchesSearch =
+      expense.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      expense.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      expense.account.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      expense.amount.toString().includes(searchQuery) ||
+      expense.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return expenseDate === selectedDate && matchesSearch;
+  });
+  
 
   const totalExpense = visibleExpenses
     .filter((expense) => expense.type === "dr")
@@ -465,12 +474,24 @@ const Transaction = () => {
         <div className="t-first">
           <div className="t-head">
             <DateDropdown onDateChange={handleDateChange} />
+            <input
+              type="text"
+              className="search"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+
             {selectedTransactions.length === 0 ? (
               <h2 className="plus" onClick={handleClick}>
                 +
               </h2>
             ) : (
-              <h2 className="plus" style={{ fontSize: '1.5rem', paddingTop: '0.5rem' }} onClick={handleDeleteSelected}>
+              <h2
+                className="plus"
+                style={{ fontSize: "1.5rem", paddingTop: "0.5rem" }}
+                onClick={handleDeleteSelected}
+              >
                 <MdDelete />
               </h2>
             )}
@@ -489,7 +510,10 @@ const Transaction = () => {
                 .slice()
                 .reverse()
                 .map((expense) => (
-                  <div key={expense._id} className="d-flex gap-3 align-items-center cursor-pointer">
+                  <div
+                    key={expense._id}
+                    className="d-flex gap-3 align-items-center cursor-pointer"
+                  >
                     <input
                       type="checkbox"
                       checked={selectedTransactions.includes(expense._id)}
