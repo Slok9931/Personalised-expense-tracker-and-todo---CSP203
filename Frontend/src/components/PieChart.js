@@ -44,3 +44,4 @@ const PieChart = ({ data, labels, title, color, showLegend = false }) => {
   };
   
   export default PieChart;
+  

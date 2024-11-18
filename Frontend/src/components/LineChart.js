@@ -38,7 +38,7 @@ const LineChart = ({ data }) => {
       tooltip: {
         callbacks: {
           label: function (context) {
-            return `${context.dataset.label}: $${context.raw.toFixed(2)}`;
+            return `${context.dataset.label}: ₹${context.raw.toFixed(2)}`;
           },
         },
       },

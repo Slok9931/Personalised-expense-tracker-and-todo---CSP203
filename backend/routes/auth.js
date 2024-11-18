@@ -158,8 +158,7 @@ Router.put("/updateuser", fetchuser, upload.single("photo"), async (req, res) =>
           }
         });
       }
-      newUser.photo = `uploads/${req.file.filename}`;
-
+      newUser.photo = `/uploads/${req.file.filename}`; 
     }
 
     const updatedUser = await User.findByIdAndUpdate(
