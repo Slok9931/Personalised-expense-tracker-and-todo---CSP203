@@ -30,20 +30,20 @@ const Navbar = () => {
         {localStorage.getItem("token") ? (
           <div>
             <Link
-              to={"/"}
-              className={`${
-                location.pathname === "/" ? "active" : "inactive"
-              } Link`}
-            >
-              Todo
-            </Link>
-            <Link
               to={"/transaction"}
               className={`${
                 location.pathname === "/transaction" ? "active" : "inactive"
               } Link`}
             >
               Transaction
+            </Link>
+            <Link
+              to={"/"}
+              className={`${
+                location.pathname === "/" ? "active" : "inactive"
+              } Link`}
+            >
+              Todo
             </Link>
           </div>
         ) : (

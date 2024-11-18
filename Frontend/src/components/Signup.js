@@ -45,7 +45,7 @@ const Signup = () => {
       const json = await response.json();
       if (json.success) {
         localStorage.setItem("token", json.authtoken);
-        navigate("/");
+        navigate("/transaction");
       } else {
         alert("These credentials already exist.");
       }
