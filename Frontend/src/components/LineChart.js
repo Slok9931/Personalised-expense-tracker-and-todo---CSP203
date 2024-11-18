@@ -24,7 +24,7 @@ const LineChart = ({ data }) => {
         data: expenseData,
         borderColor: 'red',
         backgroundColor: 'red',
-        fill: true,
+        fill: false,
         tension: 0.4,
       },
     ],
