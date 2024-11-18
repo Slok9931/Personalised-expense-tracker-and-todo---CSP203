@@ -195,6 +195,7 @@ const Todo = () => {
       <div className="t-main">
         <div className="t-first">
           <div className="t-head">
+          <h2>Remaining Tasks</h2>
             <DateDropdown onDateChange={handleDateChange} />
             {selectedTodos.length === 0 ? (
               <h2 className="plus" onClick={handleClick}>
@@ -227,6 +228,7 @@ const Todo = () => {
         </div>
 
         <div className="t-first">
+        <h2>Completed Tasks</h2>
         <div className="mt-3">
             {todos &&
               todos.length > 0 &&
