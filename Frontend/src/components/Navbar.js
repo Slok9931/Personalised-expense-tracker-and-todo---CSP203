@@ -18,8 +18,8 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="head">
-        <img src="/logo192.png" className="logo" alt="logo" />
-        <h1>CSP Project</h1>
+        <img src="/logo1.jpg" className="logo logo-signup" alt="logo" />
+        <h2>Trackify</h2>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
         <span className={isMobileMenuOpen ? "bar open" : "bar"}></span>
