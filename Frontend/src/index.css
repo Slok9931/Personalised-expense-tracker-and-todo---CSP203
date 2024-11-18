@@ -178,11 +178,12 @@ body{
 .t-first{
   background-color: #373636;
   width: 100%;
-  min-height: 80vw;
+  height: 80vw;
   margin-left: 2rem;
   margin-right: 2rem;
   border-radius: 20px;
   padding: 1.5rem;
+  overflow-y: auto;
 }
 .t-head{
   display: flex;
