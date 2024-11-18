@@ -45,13 +45,13 @@ A comprehensive web application developed as part of the **CSP203** course proje
 ## 📸 Screenshots
 
 ### Signup Page
-![Signup Page](/signup.png)
+![Signup Page](public/signup.png)
 
 ### To-Do Page
-![To-Do Page](/todo.png)
+![To-Do Page](public/todo.png)
 
 ### Expense Page
-![Expense Page](/expense.png)
+![Expense Page](public/expense.png)
 
 ## 🛠️ Tech Stack
 
