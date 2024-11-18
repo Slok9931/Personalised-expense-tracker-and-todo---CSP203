@@ -147,7 +147,7 @@ const Signup = () => {
           </div>
 
           <div className="btns">
-            <button type="submit" className="btn btn-primary mt-5">
+            <button type="submit" className="btn">
               Sign Up
             </button>
             <span
