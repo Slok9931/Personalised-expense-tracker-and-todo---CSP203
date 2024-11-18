@@ -72,14 +72,6 @@ const Todo = () => {
     (todo) => formatDate(new Date(todo.date)) === selectedDate
   );
 
-  const totalCompleted = visibleTodos
-    .filter((todo) => todo.isComplete === true)
-    .reduce((sum, todo) => sum + 1, 0);
-
-  const totalNotCompleted = visibleTodos
-    .filter((todo) => todo.type === false)
-    .reduce((sum, todo) => sum + 1, 0);
-
   const [selectedTodos, setSelectedTodos] = useState([]);
 
   const handleCheckboxChange = (todoId) => {
