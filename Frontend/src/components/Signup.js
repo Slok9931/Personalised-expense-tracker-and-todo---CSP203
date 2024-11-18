@@ -28,7 +28,7 @@ const Signup = () => {
       alert("Please enter correct password");
     } else {
       const response = await fetch(
-        "http://localhost:2000/api/auth/createuser",
+        `http://localhost:2000/api/auth/createuser`,
         {
           method: "POST",
           headers: {
@@ -57,10 +57,10 @@ const Signup = () => {
   return (
     <div className="main">
       <div className="signup1">
-        <img src="/logo512.png" alt="Header" height="250"></img>
+        <img src="/logo1.jpg" alt="Header" height="250" className="logo-signup"></img>
         <h2 className="welcome">Welcome to</h2>
-        <h2 className="welcome">iNotebook!</h2>
-        <div className="welcome">Your notes are secured in the cloud</div>
+        <h2 className="welcome">Trackify!</h2>
+        <div className="welcome">Your expenses & tasks are secured.</div>
       </div>
       <div className="signup2">
         <form onSubmit={handleSubmit}>

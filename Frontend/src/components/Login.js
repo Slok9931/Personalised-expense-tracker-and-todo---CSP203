@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -9,30 +9,22 @@ const Login = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    try {
-      const response = await fetch("http://localhost:2000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: credentials.email,
-          password: credentials.password,
-        }),
-      });
-      
-      const json = await response.json();
-      
-      if (json.success) {
-        localStorage.setItem("token", json.authtoken);
-        navigate("/");
-      } else {
-        alert("Invalid Credentials");
-      }
-    } catch (error) {
-      console.error("Error during login:", error);
-      alert("An error occurred, please try again later.");
+    const response = await fetch(`http://localhost:2000/api/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
+    if (json.success) {
+      localStorage.setItem("token", json.authtoken);
+      navigate("/");
+    } else {
+      alert("Invalid Credentials");
     }
   };
   
@@ -53,14 +45,16 @@ const Login = () => {
   return (
     <div className="main">
       <div className="signup1">
-        <img src="/logo512.png" alt="Header" height="150" />
+        <img src="/logo1.jpg" alt="Header" height="150" className="logo-signup" ></img>
         <h2 className="welcome">Welcome back</h2>
-        <div className="welcome">Login to see your secured notes</div>
+        <div className="welcome">Log in to access your secure expenses & tasks.</div>
       </div>
       <div className="signup2">
         <form onSubmit={handleSubmit}>
           <div className="email">
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email">
+              Email address
+            </label>
             <input
               type="email"
               className="input"
@@ -75,7 +69,9 @@ const Login = () => {
             </div>
           </div>
           <div className="email">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">
+              Password
+            </label>
             <div className="password">
               <input
                 type={view}
@@ -94,10 +90,14 @@ const Login = () => {
             </div>
           </div>
           <div className="btns">
-            <button type="submit" className="btn">Login</button>
+            <button type="submit" className="btn">
+              Login
+            </button>
             <span
               className="link"
-              onClick={() => navigate("/signup")}
+              onClick={() => {
+                navigate("/signup");
+              }}
             >
               Sign Up
             </span>
