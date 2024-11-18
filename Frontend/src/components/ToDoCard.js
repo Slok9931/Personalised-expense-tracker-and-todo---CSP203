@@ -4,25 +4,13 @@ import { Modal } from "bootstrap";
 
 const TodoCard = ({ todo }) => {
   const context = useContext(todoContext);
-  const { todos, editTodos, deleteTodo, addTodo, setTodos } = context;
+  const { editTodos } = context;
 
   const formatDate = (date) => {
     return date.toISOString().split("T")[0];
   };
 
   const [editTodo, setEditTodo] = useState({ework: "", edate: formatDate(new Date()), eisComplete: false});
-
-  const handleEditClick = (todo) => {
-    const modalElement = document.getElementById(`modal-${todo._id}`);
-    const bootstrapModal = new Modal(modalElement);
-    bootstrapModal.show();
-    setEditTodo({
-      id: todo._id,
-      edate: formatDate(new Date(todo.date)), // format the existing date
-      ework: todo.work,
-      eisComplete: todo.isComplete,
-    });
-  };
 
   const onEditChange = (e) => {
     setEditTodo({ ...editTodo, [e.target.name]: e.target.value });
@@ -45,7 +33,6 @@ const TodoCard = ({ todo }) => {
 
   useEffect(() => {
     if (editTodo.id) {
-      console.log("Updated editTodo state:", editTodo);
       editTodos(editTodo.id, editTodo.ework, editTodo.edate, editTodo.eisComplete);
     }
   }, [editTodo]);
@@ -61,15 +48,8 @@ const TodoCard = ({ todo }) => {
     setEditTodo(updatedTodo); // Triggers the useEffect when state changes
   };
 
-  const handleStatusChange = (e) => {
-    editTodos(todo._id, todo.work, formatDate(new Date(todo.date)), e.target.checked);
-  };
-
   const cardColor = !todo.isComplete ? "notCompleted" : "completed";
 
-  const handleClick = async () => {
-    await editTodos(todo._id, todo.work, todo.date, !todo.isComplete);
-  }
   return (
     <>
       <div
