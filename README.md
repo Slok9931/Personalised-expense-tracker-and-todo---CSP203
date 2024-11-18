@@ -108,7 +108,7 @@ To get started with the project, follow these steps:
    ```bash
    cd ../Frontend
 
-5. **Install backend dependencies:**:
+5. **Install Frontend dependencies:**:
    ```bash
    npm install
 
