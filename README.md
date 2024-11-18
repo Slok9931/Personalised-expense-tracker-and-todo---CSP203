@@ -121,11 +121,11 @@ To get started with the project, follow these steps:
 While the project is functional, there are several areas that could be enhanced in the future:
 
 - **Mobile App Version**: Develop a mobile version of the application for iOS and Android.
-- **Advanced Data Visualizations**: Add more dynamic charts like bar charts and heatmaps to provide deeper insights into expenses.
+- **Advanced Data Visualizations**: Add more dynamic charts like bar charts and heatmaps to provide deeper insights into expenses and todos.
 - **User Profiles**: Allow users to have more customizable profiles and settings for a personalized experience.
 - **Real-time Notifications**: Add real-time notifications for upcoming bills, tasks, or spending alerts.
 - **Improved Security**: Integrate multi-factor authentication (MFA) for enhanced security during login.
-
+- **Chart Export**: Integrate more options like daily, weekly and monthly chart export options.
 ## 🤝 Contributors
 
 This project was developed collaboratively by the following team members:
