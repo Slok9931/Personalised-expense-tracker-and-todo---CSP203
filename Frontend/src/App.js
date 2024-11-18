@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Todo from './components/Todo'
+import Todo from './components/Todo'
 import Navbar from './components/Navbar';
 import Transaction from './components/Transaction';
 import Login from './components/Login';
@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          {/* <Route path='/' element={<Todo/>}/> */}
+          <Route path='/' element={<Todo/>}/>
           <Route path='/transaction' element={<Transaction/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
