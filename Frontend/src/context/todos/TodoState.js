@@ -7,7 +7,7 @@ const TodoState = (props) => {
   const [todos, setTodos] = useState(todosInitial);
 
   // Fetch all todos
-  const getTodo = async () => {
+  const getTodos = async () => {
     const response = await fetch(`${host}/api/todos/fetchalltodos`, {
       method: "GET",
       headers: {
@@ -16,14 +16,15 @@ const TodoState = (props) => {
       },
     });
     const json = await response.json();
+    setTodos(json); // fixed here
   };
 
   // Add a new todo
-  const addTodos = async (work, date, isComplete) => {
+  const addTodo = async (work, date, isComplete) => {
     const response = await fetch(`${host}/api/todos/addtodos`, {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
+        "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token'),
       },
       body: JSON.stringify({work, date, isComplete}),
@@ -36,7 +37,7 @@ const TodoState = (props) => {
   };
 
   // Delete a todo
-  const deleteTodos = async (id) => {
+  const deleteTodo = async (id) => {
     const response = await fetch(`${host}/api/todos/deletetodo/${id}`, {
       method: "DELETE",
       headers: {
@@ -76,8 +77,8 @@ const TodoState = (props) => {
   };
 
   return (
-    <TodoContext.Provider value={{ todos, addTodos, deleteTodos, editTodos, getTodo, setTodos}}>
-      {prop.children}
+    <TodoContext.Provider value={{ todos, addTodo, deleteTodo, editTodos, getTodos, setTodos}}>
+      {props.children}
     </TodoContext.Provider>
   );
 };
