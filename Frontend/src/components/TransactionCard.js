@@ -123,6 +123,7 @@ const TransactionCard = ({ expense }) => {
                 style={{ filter: "invert(1)" }}
               ></button>
             </div>
+
             <div className="modal-body">
               <form onSubmit={handleEditSubmit}>
                 <div className="d-flex justify-content-between">
@@ -284,13 +285,14 @@ const TransactionCard = ({ expense }) => {
           <div className="card-info">
             <div className="card-title">{expense.title}</div>
             <div className="card-amount">
-              <div className={`${amountClass}`}>${expense.amount}</div>
+              <div className={`${amountClass} fontSize: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center"`}>
+              {expense.type === "dr" && expense.account === "cash" ? "💵" : ""}{expense.type === "dr" && expense.account === "card" ? "💳" : ""}&#8377;{expense.amount}
+              </div>
             </div>
           </div>
           <div className="card-description">{expense.description}</div>
         </div>
       </div>
-
     </>
   );
 };
